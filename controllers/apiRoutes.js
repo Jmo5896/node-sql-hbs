@@ -1,8 +1,18 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let checklist_model = require('../models/checklist');
+
+// let connection = require('../connection/connection');
+
+
 
 router.get('/', function (req, res) {
-    res.render('index');
+    checklist_model.ALL(function(result) {
+        console.log(result);
+        handlebarsObj = {checklist: result}
+        res.render('index', handlebarsObj);
+    })
+    
 });
 
 module.exports = router;

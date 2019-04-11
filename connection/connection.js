@@ -1,5 +1,5 @@
-var mysql = require('mysql');
-var connection = mysql.createConnection({
+let mysql = require('mysql');
+let connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : 'root123',
@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
  
 connection.connect((error) => {
     if (error) throw error;
-    console.log('connected');
+    console.log('connected: ' + connection.threadId);
 });
 
 module.exports = connection;
