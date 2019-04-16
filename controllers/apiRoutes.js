@@ -1,3 +1,5 @@
+'use strict';
+
 let express = require('express');
 let router = express.Router();
 let checklist_model = require('../models/checklist');
@@ -9,7 +11,7 @@ let checklist_model = require('../models/checklist');
 router.get('/', function (req, res) {
     checklist_model.ALL(function(result) {
         console.log(result);
-        handlebarsObj = {checklist: result}
+        let handlebarsObj = {checklist: result}
         res.render('index', handlebarsObj);
     })
     

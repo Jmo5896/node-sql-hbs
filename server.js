@@ -1,3 +1,5 @@
+'use strict';
+
 // set up express
 let express = require('express');
 let app = express();
@@ -13,7 +15,7 @@ let exphbs  = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-PORT = process.env.PORT || 8080;
+let PORT = process.env.PORT || 8080;
 
 //routes
 let router = require('./controllers/apiRoutes');

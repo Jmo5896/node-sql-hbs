@@ -1,3 +1,5 @@
+'use strict';
+
 let orm = require('../connection/orm');
 
 let checklist = {
@@ -6,6 +8,6 @@ let checklist = {
             callBack(results);
         })
     }
-}
+};
 
 module.exports = checklist;

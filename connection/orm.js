@@ -1,3 +1,5 @@
+'use strict';
+
 let connection = require('./connection');
 
 // connection.query('SELECT * FROM check_list', (error, results) => {
@@ -13,7 +15,7 @@ let orm = {
             callBack(results);
         })
     },
-    CREATE: function()
+    CREATE: function(){}
 }
 
 module.exports = orm;
