@@ -13,7 +13,15 @@ router.get('/', function (req, res) {
         console.log(result);
         let handlebarsObj = {checklist: result}
         res.render('index', handlebarsObj);
-    })
+    });
+    
+});
+
+router.post('/api/create', function (req, res) {
+    checklist_model.CREATE(value, function(result) {
+        console.log(result);
+        res.render('index', handlebarsObj);
+    });
     
 });
 

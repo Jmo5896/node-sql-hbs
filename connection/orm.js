@@ -13,9 +13,15 @@ let orm = {
         connection.query(queryCall, (error, results) => {
             if (error) throw error;
             callBack(results);
-        })
+        });
     },
-    CREATE: function(){}
+    CREATE: function(tableName, columnName, value, callBack){
+        queryCall  = (`INSERT ${tableName} (${columnName}) VALUES (${value});`);
+        connection.query(queryCall, (error, results) => {
+            if (error) throw error;
+            callBack(results);
+        });
+    }
 }
 
 module.exports = orm;
