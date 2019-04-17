@@ -16,7 +16,8 @@ let orm = {
         });
     },
     CREATE: function(tableName, columnName, value, callBack){
-        queryCall  = (`INSERT ${tableName} (${columnName}) VALUES (${value});`);
+        let queryCall  = (`INSERT INTO ${tableName} (${columnName}) VALUE (${value});`);
+        console.log(queryCall);
         connection.query(queryCall, (error, results) => {
             if (error) throw error;
             callBack(results);

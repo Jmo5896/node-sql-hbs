@@ -18,9 +18,9 @@ router.get('/', function (req, res) {
 });
 
 router.post('/api/create', function (req, res) {
-    checklist_model.CREATE(value, function(result) {
+    checklist_model.CREATE(req.body.newItem, function(result) {
         console.log(result);
-        res.render('index', handlebarsObj);
+        res.redirect('/');
     });
     
 });
