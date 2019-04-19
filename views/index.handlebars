@@ -1,18 +1,32 @@
-<h1>checklist</h1>
+<h1 class="mx-auto">Checklist</h1>
 
-<h3>Things to do</h3>
-
-<ul>
-    {{#each checklist}}
-    <li>{{this.checklist_item}}</li>
-    {{/each}}
-</ul>
+<div class="row">
+    <div class="col">
+        <h3>Things to do</h3>
+        <ul>
+            {{#each checklist}}
+            {{#unless this.completed}}
+            <li>{{this.checklist_item}} <button class="btn btn-danger update_item" value="{{this.id}}">Finished!!!</button></li>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col">
+        <h3>Things I've Done</h3>
+        <ul>
+            {{#each checklist}}
+            {{#if this.completed}}
+            <li>{{this.checklist_item}}</li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
 
 <form action="/api/create" method="POST">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Add Item</label>
-    <input type="text" class="form-control" name = "newItem" placeholder="enter todo item">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Add Item</label>
+        <input type="text" class="form-control" name="newItem" placeholder="enter todo item">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-

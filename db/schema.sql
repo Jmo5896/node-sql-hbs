@@ -5,6 +5,6 @@ USE my_db;
 CREATE TABLE check_list (
 	id int NOT NULL AUTO_INCREMENT,
     checklist_item varchar(100) NOT NULL,
-    completed bool DEFAULT false,
+    completed BOOLEAN DEFAULT false,
     PRIMARY KEY(id)
 );

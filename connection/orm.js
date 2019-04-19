@@ -9,14 +9,23 @@ let connection = require('./connection');
 
 let orm = {
     ALL: function(tableName, callBack) {
-        let queryCall = (`SELECT * FROM ${tableName};`);
+        let queryCall = `SELECT * FROM ${tableName};`;
+        console.log(queryCall);
         connection.query(queryCall, (error, results) => {
             if (error) throw error;
             callBack(results);
         });
     },
     CREATE: function(tableName, columnName, value, callBack){
-        let queryCall  = (`INSERT INTO ${tableName} (${columnName}) VALUE (${value});`);
+        let queryCall  = `INSERT INTO ${tableName} (${columnName}) VALUE ('${value}');`;
+        console.log(queryCall);
+        connection.query(queryCall, (error, results) => {
+            if (error) throw error;
+            callBack(results);
+        });
+    },
+    UPDATE: function(tableName, columnName, rowIdentifier, callBack) {
+        let queryCall = `UPDATE ${tableName} SET ${columnName} = true WHERE id = ${rowIdentifier};`;
         console.log(queryCall);
         connection.query(queryCall, (error, results) => {
             if (error) throw error;

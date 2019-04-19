@@ -12,7 +12,12 @@ let checklist = {
         orm.CREATE('check_list', 'checklist_item', value, function(results) {
             callBack(results);
         })
-    }
+    },
+    UPDATE: function(id, callBack) {
+        orm.UPDATE('check_list', 'completed', id, function(results) {
+            callBack(results);
+        })
+    },
 };
 
 module.exports = checklist;
