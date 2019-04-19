@@ -1,32 +1,45 @@
-<h1 class="mx-auto">Checklist</h1>
+<h1 class="text-light text-center">Checklist</h1>
 
-<div class="row">
-    <div class="col">
-        <h3>Things to do</h3>
-        <ul>
-            {{#each checklist}}
-            {{#unless this.completed}}
-            <li>{{this.checklist_item}} <button class="btn btn-danger update_item" value="{{this.id}}">Finished!!!</button></li>
-            {{/unless}}
-            {{/each}}
-        </ul>
+<div class="container rounded">
+
+
+    <div class="row">
+        <div class="col-5 container-flex text-center round">
+            <h3>Things To Do</h3>
+            <ul>
+                {{#each checklist}}
+                {{#unless this.completed}}
+                <li class="text-justify">{{this.checklist_item}} <button class="btn btn-outline-primary btn-sm update_item"
+                        value="{{this.id}}">Finished!!!</button></li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5 container-flex text-center round">
+            <h3>Things I've Done</h3>
+            <ul>
+                {{#each checklist}}
+                {{#if this.completed}}
+                <li class="text-justify">{{this.checklist_item}}<button class="btn btn-outline-success btn-sm delete_item"
+                        value="{{this.id}}">Delete</button></li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
     </div>
-    <div class="col">
-        <h3>Things I've Done</h3>
-        <ul>
-            {{#each checklist}}
-            {{#if this.completed}}
-            <li>{{this.checklist_item}}<button class="btn btn-warning delete_item" value="{{this.id}}">Delete</button></li>
-            {{/if}}
-            {{/each}}
-        </ul>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col text-center">
+            <form action="/api/create" method="POST">
+                <div class="form-group">
+                    <label for="newItem">Add a magical Item</label>
+                    <input type="text" class="form-control" name="newItem" placeholder="Enter Item Here">
+                </div>
+                <button type="submit" class="btn btn-outline-dark btn-lg">Submit</button>
+            </form>
+        </div>
+        <div class="col"></div>
     </div>
+
 </div>
-
-<form action="/api/create" method="POST">
-    <div class="form-group">
-        <label for="exampleInputEmail1">Add Item</label>
-        <input type="text" class="form-control" name="newItem" placeholder="enter todo item">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
