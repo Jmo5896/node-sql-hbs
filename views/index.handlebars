@@ -16,7 +16,7 @@
         <ul>
             {{#each checklist}}
             {{#if this.completed}}
-            <li>{{this.checklist_item}}</li>
+            <li>{{this.checklist_item}}<button class="btn btn-warning delete_item" value="{{this.id}}">Delete</button></li>
             {{/if}}
             {{/each}}
         </ul>

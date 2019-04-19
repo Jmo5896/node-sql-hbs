@@ -18,6 +18,11 @@ let checklist = {
             callBack(results);
         })
     },
+    DELETE: function(id, callBack) {
+        orm.DELETE('check_list', id, function(results) {
+            callBack(results);
+        })
+    },
 };
 
 module.exports = checklist;

@@ -31,6 +31,14 @@ let orm = {
             if (error) throw error;
             callBack(results);
         });
+    },
+    DELETE: function(tableName, rowIdentifier, callBack) {
+        let queryCall = `DELETE FROM ${tableName} WHERE id = ${rowIdentifier};`;
+        console.log(queryCall);
+        connection.query(queryCall, (error, results) => {
+            if (error) throw error;
+            callBack(results);
+        });
     }
 }
 

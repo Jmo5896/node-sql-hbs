@@ -33,4 +33,12 @@ router.put('/api/update/:id', function (req, res) {
     
 });
 
+router.put('/api/delete/:id', function (req, res) {
+    checklist_model.DELETE(req.params.id, function(result) {
+        console.log(result);
+        res.sendStatus(200); //res.redirect does not work here, it will throw a 404 and then upon refreshing the page you'll see it worked
+    });
+    
+});
+
 module.exports = router;
